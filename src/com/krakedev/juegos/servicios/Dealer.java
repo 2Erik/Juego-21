@@ -42,4 +42,9 @@ public class Dealer {
 			System.out.println(carta.getValor()+" - "+carta.getPalo()+" Valor juego: "+carta.getValorJuego());
 		}
 	}
+	
+	//METODO ALEATORIO
+	public int generarAleatorio(int maximo) {
+		return (int) Math.random()*100+1;
+	}
 }
