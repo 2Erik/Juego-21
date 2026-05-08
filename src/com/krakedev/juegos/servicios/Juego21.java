@@ -49,6 +49,55 @@ public class Juego21 {
 		for (Jugador j : jugadores) {
 			repartirCarta(j);
 		}
+		calcularTotal();
+	}
+	
+	//METODO CALCULAR TOTAL
+	public void calcularTotal() {
+		for (Jugador j : jugadores) {
+			int suma = 0;
+			ArrayList<Carta> cartas = j.getCartas();
+			for (Carta c : cartas) {
+				suma += c.getValorJuego();
+			}
+			j.setPuntajeCartas(suma);
+		}
+	}
+	
+	//METODO VALIDAR GANADOR
+	public ArrayList<Jugador> validarGanador() {
+		ArrayList<Jugador> ganadores = new ArrayList<Jugador>();
+		for (Jugador jugador : jugadores) {
+			if(jugador.getPuntajeCartas()==21) {
+				ganadores.add(jugador);
+			}
+		}
+		return ganadores;
+	}
+	
+	//METODO JUGAR
+	public ArrayList<Jugador> jugar() {
+
+	    ArrayList<Jugador> ganadores = new ArrayList<Jugador>();
+	    for (int i = 1; i <= 3; i++) {
+	        repartirRonda();
+	        ganadores = validarGanador();
+	        if (ganadores.size() > 0) {
+	            break;
+	        }
+	    }
+	    return ganadores;
+	}
+	
+	//METODO REINOICIAR JUEGO
+	public void reiniciarJuego() {
+
+	    for (Jugador j : jugadores) {
+	        j.reiniciar();
+	    }
+
+	    dealer = new Dealer();
+	    cargarValores();
 	}
 
 	//GETTERS AND SETTRES

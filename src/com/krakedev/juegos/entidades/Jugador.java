@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 public class Jugador {
 	private String nickname;
-	private ArrayList<Carta> cartas = new ArrayList<Carta>();
+	private int puntajeCartas = 0;
+	private ArrayList<Carta> cartas;
 	
 	public Jugador(String nickName) {
 		this.nickname = nickName;
+		cartas = new ArrayList<Carta>();
 	}
 	
 	//METODO RECIBIR CARTA
@@ -25,4 +27,37 @@ public class Jugador {
 		}
 		System.out.println("---------------");
 	}
+	
+	//METODO REINICIAR
+	public void reiniciar() {
+	    cartas.clear();
+	    puntajeCartas = 0;
+	}
+
+	//GETTERD AND SETTERS
+	public int getPuntajeCartas() {
+		return puntajeCartas;
+	}
+
+	public void setPuntajeCartas(int puntajeCartas) {
+		this.puntajeCartas = puntajeCartas;
+	}
+
+	public ArrayList<Carta> getCartas() {
+		return cartas;
+	}
+
+	public void setCartas(ArrayList<Carta> cartas) {
+		this.cartas = cartas;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	
+	
 }
